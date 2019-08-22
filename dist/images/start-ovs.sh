@@ -28,6 +28,7 @@ function quit {
 trap quit EXIT
 
 # Start vswitchd
+/usr/share/openvswitch/scripts/ovs-ctl --ike-daemon=libreswan start-ovs-ipsec
 /usr/share/openvswitch/scripts/ovs-ctl restart --no-ovs-vswitchd --system-id=random
 # Restrict the number of pthreads ovs-vswitchd creates to reduce the
 # amount of RSS it uses on hosts with many cores
